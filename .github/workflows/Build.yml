@@ -22,6 +22,7 @@ jobs:
             with:
               java-version: '21'
               distribution: 'zulu'
+              cache: 'gradle'
           - name: Build
             run: ./gradlew build
           - name: Upload Build Artifacts

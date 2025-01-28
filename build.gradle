@@ -10,6 +10,9 @@ group 'io.github.ecdcaeb'
 version = '1.0.0'
 archivesBaseName = "CmdSrgUtils"
 
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+compileJava.options.encoding = 'UTF-8'
+
 repositories {
     mavenCentral()
     maven{url:"https://maven.neoforged.net/releases/"}

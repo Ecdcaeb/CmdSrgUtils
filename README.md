@@ -1,4 +1,14 @@
-# tsrg2srg
-tsrg2srg is a tool for converting the new TSRG files to SRG files, which can be used to make deobfuscated JAR archives for Minecraft Mod Development.
+# CmdSrgUtils
+CmdSrgUtils is a tool that facilitates mapping transformation using command line tools.
 
-tsrg2srg是一个用来将新版TSRG文件转换为SRG文件的工具，可以被用来制作反混淆的JAR归档，以便用于Minecraft Mod开发。
+Usage:
+
+- Start: `java -jar CmdSrgUtils.jar --from <sourceMappingType> --to <ResultMappingType>`
+- Then: `<filename...> exit`, for example: `1.12.2.tsrg 1.13.tsrg exit`
+
+CmdSrgUtils 是使用命令行工具促进mapping转化的工具。
+
+使用 ：
+
+- 启动：`java -jar CmdSrgUtils.jar --from <sourceMappingType> --to <ResultMappingType>`
+- 然后：`<filename...> exit`，例如 ： `1.12.2.tsrg 1.13.tsrg exit`

@@ -56,12 +56,12 @@ public class Main {
                 System.out.println();
                 continue;
             }
-            File outputFile = new File(file.getParent(), input + '.' + eTo.name());
+            File outputFile = new File(fromFile.getParent(), input + '.' + eTo.name());
             System.out.println("Writing " + outputFile.getPath());
             try {
                 outputFile.createNewFile();
-                output.mkdirs();
-                mappingFile.write(Paths.get(output.toURI()), eTo, false);
+                outputFile.mkdirs();
+                mappingFile.write(Paths.get(outputFile.toURI()), eTo, false);
             } catch (Throwable e) {
                 System.out.println("Error while writing file");
                 e.printStackTrace();

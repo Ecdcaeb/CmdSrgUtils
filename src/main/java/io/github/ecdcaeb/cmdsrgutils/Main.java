@@ -60,6 +60,7 @@ public class Main {
             System.out.println("Writing " + outputFile.getPath());
             try {
                 outputFile.mkdirs();
+                outputFile.createNewFile();
                 mappingFile.write(outputFile.toPath(), eTo, false);
             } catch (IOException e) {
                 System.out.println("Error while writing file");

@@ -22,18 +22,8 @@ dependencies {
 
 shadowJar {
     dependencies {
-        include(dependency('com.formdev:.*'))
-        include(dependency('com.miglayout:.*'))
-        include(dependency('com.github.weisj:.*'))
-        include(dependency('com.github.bobbylight:RSyntaxTextArea'))
-        include(dependency('org.ow2.asm:.*'))
-        include(dependency('org.benf:cfr'))
-        include(dependency('com.github.mstrobel.procyon:procyon-decompiler'))
-        include(dependency('com.google.code.gson:gson'))
-        include(dependency('org.tinylog:.*'))
-        include(dependency('org.vineflower:vineflower'))
-        include(dependency('com.github.FabricMC:mapping-io'))
-        include(dependency('zone.rong:imaginebreaker'))
+        include(dependency('net.sf.jopt-simple:jopt-simple:6.0-alpha-3'))
+        include(dependency('net.neoforged:srgutils:1.0.9'))
     }
     archiveClassifier.set('')
 }

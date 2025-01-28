@@ -1,4 +1,5 @@
 
+import java.text.SimpleDateFormat
 plugins {
     id 'java'
 	id 'idea'
@@ -21,6 +22,17 @@ repositories {
 dependencies {
     implementation 'net.sf.jopt-simple:jopt-simple:6.0-alpha-3'
     implementation "net.neoforged:srgutils:1.0.9"
+}
+
+jar {
+    manifest.attributes(
+            'Manifest-Version': 1.0,
+            'Main-Class': 'io.github.ecdcaeb.cmdsrgutils.Main',
+            "Implementation-Title": "CmdSrgUtils",
+            "Implementation-Version": "${version}",
+            "Implementation-Vendor": "${group}",
+            "Implementation-Timestamp": new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())
+    )
 }
 
 shadowJar {

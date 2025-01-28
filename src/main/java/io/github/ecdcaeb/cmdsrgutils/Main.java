@@ -51,17 +51,18 @@ public class Main {
             try {
                 mappingFile = IMappingFile.load(fromFile);
             } catch (IOException e) {
-                System.out.println("Error while loading TSRG file");
+                System.out.println("Error while loading file");
                 e.printStackTrace();
                 System.out.println();
                 continue;
             }
-            File outputFile = new File(input + ".srg");
+            File outputFile = new File(input + '.' + eTo.name());
             System.out.println("Writing " + outputFile.getPath());
             try {
+                outputFile.mkdir();
                 mappingFile.write(outputFile.toPath(), eTo, false);
             } catch (IOException e) {
-                System.out.println("Error while writing SRG file");
+                System.out.println("Error while writing file");
                 e.printStackTrace();
                 System.out.println();
                 continue;

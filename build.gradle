@@ -1,30 +1,46 @@
 
+import java.text.SimpleDateFormat
 plugins {
-    // Apply the java plugin to add support for Java
     id 'java'
-
-    // Apply the application plugin to add support for building a CLI application.
-    id 'application'
 	id 'idea'
     id 'eclipse'
+    id 'com.gradleup.shadow' version '8.3.4'
 }
 
+group 'io.github.ecdcaeb'
+version = '1.0.0'
+archivesBaseName = "CmdSrgUtils"
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+compileJava.options.encoding = 'UTF-8'
+
 repositories {
-    // Use jcenter for resolving dependencies.
-    // You can declare any Maven/Ivy/file repository here.
-    jcenter()
+    mavenCentral()
+    maven{url="https://maven.neoforged.net/releases/"}
 }
 
 dependencies {
-    // This dependency is used by the application.
-    implementation 'com.google.guava:guava:28.1-jre'
-    implementation 'commons-io:commons-io:2.4'
-
-    // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
+    implementation 'net.sf.jopt-simple:jopt-simple:6.0-alpha-3'
+    implementation "net.neoforged:srgutils:1.0.9"
 }
 
-application {
-    // Define the main class for the application.
-    mainClassName = 'com.github.zi_jing.tsrg2srg.Main'
+jar {
+    manifest.attributes(
+            'Manifest-Version': 1.0,
+            'Main-Class': 'io.github.ecdcaeb.cmdsrgutils.Main',
+            "Implementation-Title": "CmdSrgUtils",
+            "Implementation-Version": "${version}",
+            "Implementation-Vendor": "${group}",
+            "Implementation-Timestamp": new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())
+    )
 }
+
+shadowJar {
+    dependencies {
+        include(dependency('net.sf.jopt-simple:jopt-simple:6.0-alpha-3'))
+        include(dependency('net.neoforged:srgutils:1.0.9'))
+    }
+    archiveClassifier.set('')
+}
+
+build.dependsOn shadowJar

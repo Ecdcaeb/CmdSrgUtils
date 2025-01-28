@@ -1,0 +1,32 @@
+# This workflow will build and upload test artifact
+# Simple workflow with ignoring condition to prevent unneccessary build
+# To download artifact check on job task
+
+name: Build Test Artifact
+
+on:
+  push:
+
+jobs:
+  build:
+    name: Build and Upload Artifact
+    runs-on: ubuntu-latest
+
+    steps:
+          - name: Checkout Repository
+            uses: actions/checkout@v4.1.4
+          - name: Grant Execute Permission for gradlew
+            run: chmod +x ./gradlew
+          - name: Set up JDK 21
+            uses: actions/setup-java@v4.2.1
+            with:
+              java-version: '21'
+              distribution: 'zulu'
+              cache: 'gradle'
+          - name: Build
+            run: ./gradlew build
+          - name: Upload Build Artifacts
+            uses: actions/upload-artifact@v4.3.3
+            with:
+              name: CmdSrgUtils
+              path: build/libs

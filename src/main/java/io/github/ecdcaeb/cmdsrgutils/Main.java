@@ -50,18 +50,19 @@ public class Main {
             IMappingFile mappingFile;
             try {
                 mappingFile = IMappingFile.load(fromFile);
-            } catch (IOException e) {
+            } catch (Throwable e) {
                 System.out.println("Error while loading file");
                 e.printStackTrace();
                 System.out.println();
                 continue;
             }
-            File outputFile = new File(input + '.' + eTo.name());
+            File outputFile = new File(file.getParent(), input + '.' + eTo.name());
             System.out.println("Writing " + outputFile.getPath());
             try {
                 outputFile.createNewFile();
-                mappingFile.write(outputFile.toPath(), eTo, false);
-            } catch (IOException e) {
+                output.mkdirs();
+                mappingFile.write(Paths.get(output.toURI()), eTo, false);
+            } catch (Throwable e) {
                 System.out.println("Error while writing file");
                 e.printStackTrace();
                 System.out.println();

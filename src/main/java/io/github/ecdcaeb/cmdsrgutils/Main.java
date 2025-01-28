@@ -59,7 +59,6 @@ public class Main {
             File outputFile = new File(input + '.' + eTo.name());
             System.out.println("Writing " + outputFile.getPath());
             try {
-                outputFile.mkdirs();
                 outputFile.createNewFile();
                 mappingFile.write(outputFile.toPath(), eTo, false);
             } catch (IOException e) {

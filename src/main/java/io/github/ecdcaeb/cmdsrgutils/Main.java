@@ -59,7 +59,7 @@ public class Main {
             File outputFile = new File(input + ".srg");
             System.out.println("Writing " + outputFile.getPath());
             try {
-                mappingFile.write(eTo, outputFile, false);
+                mappingFile.write(outputFile.toPath(), eTo, false);
             } catch (IOException e) {
                 System.out.println("Error while writing SRG file");
                 e.printStackTrace();
